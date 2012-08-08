@@ -1,15 +1,16 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Linq.Mapping;
+
 
 namespace Northwind.WebApi.Models
 {
-    [Table("Order_Details")]
+    [Table(Name="Order_Details")]
     public class OrderDetail
     {
-        [Key, Column(Order = 0)]
+        [Key]
         public int OrderID { get; set; }
-        [Key, Column(Order = 1)]
+        [Key]
         public int ProductID { get; set; }
         public decimal UnitPrice { get; set; }
         public Int16 Quantity { get; set; }
