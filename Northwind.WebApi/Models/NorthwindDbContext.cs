@@ -8,14 +8,14 @@ namespace Northwind.WebApi.Models
         {
         }
 
-//        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-//        {
-//            modelBuilder.Entity<Order>().HasMany(o => o.OrderDetails)
-//                                        .WithRequired(od => od.Order)
-//                                        .HasForeignKey(ou => ou.OrderID);
-//
-//            base.OnModelCreating(modelBuilder);
-//        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<OrderDetail>().ToTable("Order_Details");
+            modelBuilder.Entity<OrderDetail>().HasKey(obj => new { obj.OrderID, obj.ProductID });
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Customer> Customers { get; set; }  
         public DbSet<Employee> Employees { get; set; }  

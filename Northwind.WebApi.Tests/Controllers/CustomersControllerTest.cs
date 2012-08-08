@@ -14,20 +14,20 @@ namespace Northwind.WebApi.Tests.Controllers
     [TestClass]
     public class CustomersControllerTest
     {
-        [TestMethod]
-        public void Get()
-        {
-            // Arrange
-            CustomersController controller = new CustomersController();
-
-            // Act
-            IEnumerable<Customer> result = controller.Get();
-
-            // Assert
-            Assert.IsTrue(true);
-//            Assert.IsNotNull(result);
-//            Assert.IsTrue(result.Any());
-        }
+//        [TestMethod]
+//        public void Get()
+//        {
+//            // Arrange
+//            CustomersController controller = new CustomersController();
+//
+//            // Act
+//            IEnumerable<Customer> result = controller.Get();
+//
+//            // Assert
+//            Assert.IsTrue(true);
+////            Assert.IsNotNull(result);
+////            Assert.IsTrue(result.Any());
+//        }
 
 
     }
