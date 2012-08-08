@@ -15,5 +15,13 @@ namespace Northwind.WebApi.Controllers
                 return dbContext.Employees.ToList();
             }
         }
+
+        public Employee Get(int id)
+        {
+            using (var dbContext = new NorthwindDbContext())
+            {
+                return (from employee in dbContext.Employees where employee.EmployeeId == id select employee).FirstOrDefault();
+            }           
+        } 
     }
 }

@@ -8,13 +8,11 @@ namespace Northwind.WebApi.Controllers
 {
     public class OrdersController : ApiController
     {
-        public IEnumerable<Order> Get()
+        public IEnumerable<Order> Get(string id)
         {
             using (var dbContext = new NorthwindDbContext())
             {
-                var list =  dbContext.Orders.ToList();
-
-                return list;
+                return (from o in dbContext.Orders where o.CustomerID == id select o).ToList();
             }
         }
     }

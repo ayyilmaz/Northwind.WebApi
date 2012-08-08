@@ -14,5 +14,7 @@ namespace Northwind.WebApi.Models
         public Int16 UnitsOnOrder { get; set; }
         public Int16 ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+
+//        public virtual Supplier Supplier { get; set; }
     }
 }
