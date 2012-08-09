@@ -1,31 +1,30 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Northwind.WebApi;
+
 using Northwind.WebApi.Controllers;
 using Northwind.WebApi.Models;
 
 namespace Northwind.WebApi.Tests.Controllers
 {
     [TestClass]
-    public class CustomersControllerTest
+    public class OrdersControllerTest
     {
         [TestMethod]
         public void Get()
         {
             // Arrange
-            CustomersController controller = new CustomersController();
+            OrdersController controller = new OrdersController();
 
             // Act
-            IEnumerable<Customer> result = controller.Get();
+            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Any());
+            Assert.AreEqual("ALFKI", result.First().CustomerID);
+//            Assert.IsNotNull(result.First().OrderDetails);
         }
 
 

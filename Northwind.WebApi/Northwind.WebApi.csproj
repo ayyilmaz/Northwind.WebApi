@@ -141,7 +141,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NorthwindDbContext.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Order_Details.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\Supplier.cs" />

@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using Northwind.WebApi.Controllers;
+
 namespace Northwind.WebApi
 {
     public class RouteConfig
@@ -20,11 +22,8 @@ namespace Northwind.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
-//            routes.MapRoute(
-//                name: "Default",
-//                url: "{controller}/{action}/{id}",
-//                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-//            );
+            OrdersController.AddRoutes(routes);
+            OrderDetailsController.AddRoutes(routes);
         }
     }
 }
