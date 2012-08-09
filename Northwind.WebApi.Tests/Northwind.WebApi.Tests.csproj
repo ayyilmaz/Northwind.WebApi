@@ -106,7 +106,9 @@
     <Content Include="App.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Northwind.sdf" />
+    <Content Include="App_Data\Northwind.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

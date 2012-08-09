@@ -29,7 +29,7 @@ namespace Northwind.WebApi.Controllers
         {
             using (var dbContext = new NorthwindDbContext())
             {
-                return (from o in dbContext.Orders where o.CustomerID == customerId select o);
+                return (from o in dbContext.Orders where o.CustomerID == customerId select o).ToList();
             }
         }
 
