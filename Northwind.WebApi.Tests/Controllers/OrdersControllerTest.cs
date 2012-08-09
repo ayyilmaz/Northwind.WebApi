@@ -18,7 +18,7 @@ namespace Northwind.WebApi.Tests.Controllers
             OrdersController controller = new OrdersController();
 
             // Act
-            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
+//            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
 
             // Assert
 //            Assert.IsNotNull(result);
