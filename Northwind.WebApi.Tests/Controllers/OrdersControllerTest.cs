@@ -12,19 +12,18 @@ namespace Northwind.WebApi.Tests.Controllers
     public class OrdersControllerTest
     {
         [TestMethod]
+        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
         public void Get()
         {
             // Arrange
             OrdersController controller = new OrdersController();
 
             // Act
-//            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
+            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
 
-            // Assert
-//            Assert.IsNotNull(result);
-//            Assert.IsTrue(result.Any());
-//            Assert.AreEqual("ALFKI", result.First().CustomerID);
-////            Assert.IsNotNull(result.First().OrderDetails);
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
+            Assert.AreEqual("ALFKI", result.First().CustomerID);
         }
 
 

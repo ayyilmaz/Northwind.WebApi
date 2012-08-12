@@ -15,17 +15,17 @@ namespace Northwind.WebApi.Tests.Controllers
     public class CustomersControllerTest
     {
         [TestMethod]
+        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
         public void Get()
         {
             // Arrange
             CustomersController controller = new CustomersController();
 
             // Act
-//            IEnumerable<Customer> result = controller.Get();
+            IEnumerable<Customer> result = controller.Get();
 
-            // Assert
-//            Assert.IsNotNull(result);
-//            Assert.IsTrue(result.Any());
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Any());
         }
 
 
