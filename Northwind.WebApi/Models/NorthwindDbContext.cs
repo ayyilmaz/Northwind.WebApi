@@ -10,7 +10,7 @@ namespace Northwind.WebApi.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            
             modelBuilder.Entity<OrderDetail>().ToTable("Order_Details");
             modelBuilder.Entity<OrderDetail>().HasKey(obj => new { obj.OrderID, obj.ProductID });
 

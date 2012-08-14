@@ -18,6 +18,6 @@ namespace Northwind.WebApi.Models
         public string ShipCity { get; set; }
         public string ShipRegion { get; set; }
         public string ShipCountry { get; set; }
-//        public ICollection<OrderDetail> OrderDetails { get; set; } 
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } 
     }
 }

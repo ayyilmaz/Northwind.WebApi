@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -27,10 +28,19 @@ namespace Northwind.WebApi.Controllers
         
         public IEnumerable<Order> GetOrdersForCustomer(string customerId)
         {
-            using (var dbContext = new NorthwindDbContext())
+            try
             {
-                return (from o in dbContext.Orders where o.CustomerID == customerId select o).ToList();
+                using (var dbContext = new NorthwindDbContext())
+                {
+                    return (from o in dbContext.Orders.Include("OrderDetails") where o.CustomerID == customerId select o).ToList();
+                }
             }
+            catch (Exception exception)
+            {
+                new LogEvent(exception.Message).Raise();
+            } 
+
+            return new List<Order>();
         }
 
         /// <summary>Die Routen für den aktuellen Controller hinzufügen</summary>
