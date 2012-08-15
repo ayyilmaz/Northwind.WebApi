@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -18,8 +19,14 @@ namespace Northwind.WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            //GlobalConfiguration.Configuration.Formatters.RemoveAt(1);
 
 
+        }
+
+        protected void Application_Error(object sender, Exception exception)
+        {
+            new LogEvent(exception.Message).Raise();
         }
     }
 }
