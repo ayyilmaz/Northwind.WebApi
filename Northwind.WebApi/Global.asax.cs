@@ -19,7 +19,7 @@ namespace Northwind.WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
-            //GlobalConfiguration.Configuration.Formatters.RemoveAt(1);
+//            GlobalConfiguration.Configuration.Formatters.RemoveAt(0);
 
 
         }

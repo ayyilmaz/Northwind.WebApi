@@ -16,14 +16,17 @@ namespace Northwind.WebApi.Tests.Controllers
     public class OrdersControllerTest
     {
         [TestMethod]
-        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
+//        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
+        [DeploymentItem(@"App_Data\Northwind.sdf", @"App_Data")]
         public void Get()
         {
             // Arrange
             OrdersController controller = new OrdersController();
 
             // Act
-            IEnumerable<Order> result = controller.GetOrdersForCustomer("ALFKI");
+            var responseMessage = controller.GetOrdersForCustomer("ALFKI");
+            responseMessage.EnsureSuccessStatusCode();
+            var result = responseMessage.Content.ReadAsAsync<IEnumerable<Order>>().Result;
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Any());
@@ -38,7 +41,7 @@ namespace Northwind.WebApi.Tests.Controllers
         {
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://localhost:8888/");
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+//            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             try
             {

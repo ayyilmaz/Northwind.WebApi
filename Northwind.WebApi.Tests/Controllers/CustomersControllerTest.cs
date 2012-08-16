@@ -17,7 +17,8 @@ namespace Northwind.WebApi.Tests.Controllers
     public class CustomersControllerTest
     {
         [TestMethod]
-        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
+//        [DeploymentItem(@"Northwind.WebApi\App_Data\Northwind.sdf", @"App_Data")]
+        [DeploymentItem(@"App_Data\Northwind.sdf", @"App_Data")]
         public void Get()
         {
             // Arrange
